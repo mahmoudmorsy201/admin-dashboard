@@ -1,7 +1,41 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "Bundler",
+    "module": "preserve",
+    "sourceMap": true,
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noUncheckedIndexedAccess": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "noEmit": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase",
+          "goToDefinition": true
+        }
+      }
+    ],
+    "baseUrl": "src"
+  },
+  "outDir": "./dist/",
+  "include": ["*.js", "*.?js", "src"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["node_modules", "**/node_modules/*", "dist", "coverage"]
 }

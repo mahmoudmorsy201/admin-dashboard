@@ -1,0 +1,48 @@
+{
+    "extends": ["stylelint-config-recommended-scss", "stylelint-config-css-modules"],
+    "plugins": ["stylelint-scss"],
+    "rules": {
+      "property-no-unknown": true,
+      "media-feature-name-no-unknown": [
+        true,
+        {
+          "ignoreMediaFeatureNames": ["min--moz-device-pixel-ratio", "min-device-pixel-ratio"]
+        }
+      ],
+      "function-no-unknown": null,
+      "at-rule-no-unknown": null,
+      "scss/at-rule-no-unknown": true,
+      "scss/at-import-no-partial-leading-underscore": null,
+      "scss/load-no-partial-leading-underscore": true,
+      "scss/at-import-partial-extension": null,
+      "scss/load-partial-extension": "never",
+      "comment-no-empty": true,
+      "no-invalid-position-at-import-rule": null,
+      "no-descending-specificity": null,
+      "font-family-no-missing-generic-family-keyword": null,
+      "declaration-block-no-shorthand-property-overrides": true,
+      "function-linear-gradient-no-nonstandard-direction": true,
+      "selector-type-no-unknown": null,
+      "no-duplicate-selectors": null,
+      "selector-pseudo-element-no-unknown": [
+        true,
+        {
+          "ignorePseudoElements": ["global", "local"]
+        }
+      ],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": ["global", "local", "export"]
+        }
+      ],
+      "declaration-block-no-duplicate-properties": [
+        true,
+        {
+          "ignore": ["consecutive-duplicates-with-different-values"]
+        }
+      ],
+      "selector-no-qualifying-type": null
+    }
+  }
+  
