@@ -7,7 +7,6 @@ import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import svgrPlugin from 'vite-plugin-svgr';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
-import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -46,7 +45,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       viteTsconfigPaths(),
-      tailwindcss(),
       svgrPlugin(),
       checker({
         eslint: {

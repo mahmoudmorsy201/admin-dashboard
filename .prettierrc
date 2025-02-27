@@ -1,20 +1,19 @@
 {
-    "bracketSameLine": false,
-    "useTabs": false,
-    "printWidth": 120,
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "trailingComma": "all",
-    "endOfLine": "auto",
-    "overrides": [
-      {
-        "files": ["**/*.jsonc"],
-        "options": {
-          "trailingComma": "none"
-        }
+  "bracketSameLine": false,
+  "useTabs": false,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": ["**/*.jsonc"],
+      "options": {
+        "trailingComma": "none"
       }
-    ]
-  }
-  
+    }
+  ]
+}
