@@ -26,17 +26,17 @@ export const useWindowSize = (options?: UseWindowSizeOptions) => {
   const isSmallMobile = useMediaQuery(`(max-width: ${(opts.minPhoneWidth ?? 440) - 1}px)`);
   const isMobile = useMediaQuery(`(max-width: ${(opts.minTabletWidth ?? 768) - 1}px)`);
   const isTablet = useMediaQuery(
-    `(min-width: ${(opts.minTabletWidth ?? 768)}px) and (max-width: ${(opts.minDesktopWidth ?? 960) - 1}px)`,
+    `(min-width: ${opts.minTabletWidth ?? 768}px) and (max-width: ${(opts.minDesktopWidth ?? 960) - 1}px)`,
   );
-  const isDesktop = useMediaQuery(`(min-width: ${(opts.minDesktopWidth ?? 960)}px)`);
+  const isDesktop = useMediaQuery(`(min-width: ${opts.minDesktopWidth ?? 960}px)`);
   const isDesktopSmall = useMediaQuery(
-    `(min-width: ${(opts.minDesktopWidth ?? 960)}px) and (max-width: ${(opts.minDesktopLargeWidth ?? 1200) - 1}px)`,
+    `(min-width: ${opts.minDesktopWidth ?? 960}px) and (max-width: ${(opts.minDesktopLargeWidth ?? 1200) - 1}px)`,
   );
   const isDesktopLarge = useMediaQuery(
-    `(min-width: ${(opts.minDesktopLargeWidth ?? 1200)}px) and (max-width: ${(opts.minDesktopExtraLargeWidth ?? 1440) - 1}px)`,
+    `(min-width: ${opts.minDesktopLargeWidth ?? 1200}px) and (max-width: ${(opts.minDesktopExtraLargeWidth ?? 1440) - 1}px)`,
   );
-  const isDesktopExtraLarge = useMediaQuery(`(min-width: ${(opts.minDesktopExtraLargeWidth ?? 1440)}px)`);
-  
+  const isDesktopExtraLarge = useMediaQuery(`(min-width: ${opts.minDesktopExtraLargeWidth ?? 1440}px)`);
+
   const isPortrait = useMediaQuery('(orientation: portrait)');
   const isLandscape = useMediaQuery('(orientation: landscape)');
   const isHoverDevice = useMediaQuery('(hover: hover)');
