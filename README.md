@@ -1,24 +1,9 @@
-Here's a refined version of your README based on the information you provided. It includes relevant sections to guide users through the setup and usage of the **Admin Dashboard**.
-
-```markdown
-# Admin Dashboard
+# 🛠 Admin Dashboard
 
 Welcome to the **Admin Dashboard**! This is a web-based administrative interface to help you manage and monitor your application. Follow the instructions below to set up, run, and interact with the project.
 
----
 
-## Table of Contents
-
-- [Clone the Repository](#clone-the-repository)
-- [Install Dependencies](#install-dependencies)
-- [Running the Application](#running-the-application)
-  - [Running Locally](#running-locally)
-  - [Running with Docker](#running-with-docker)
-- [Login Credentials](#login-credentials)
-- [Troubleshooting](#troubleshooting)
----
-
-## Clone the Repository
+## 📥 Clone the Repository
 
 To get started, clone the repository and navigate to your project folder:
 
@@ -29,7 +14,7 @@ cd admin-dashboard
 
 ---
 
-## Install Dependencies
+## 📦 Install Dependencies
 
 Before running the application, install the necessary dependencies:
 
@@ -43,7 +28,7 @@ npm install
 
 You have two options for running the Admin Dashboard: locally or using Docker.
 
-### Running Locally
+### 🚀 Start the Project Locally
 
 Once the dependencies are installed, start the application:
 
@@ -58,11 +43,11 @@ Open your browser and navigate to:
 
 ---
 
-### Running with Docker
+### 🐳 Start the Project With Docker
 
 Alternatively, you can run the Admin Dashboard using Docker.
 
-#### Build the Docker Image
+#### 🏗 Build the Docker Image
 
 First, build the Docker image:
 
@@ -70,7 +55,7 @@ First, build the Docker image:
 docker build -t admin-dashboard .
 ```
 
-#### Run the Docker Container
+#### ▶ Run the Docker Container
 
 Then, run the Docker container:
 
