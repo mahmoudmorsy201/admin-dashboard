@@ -1,5 +1,3 @@
-//TODO: dockerize the project
-
 import { useEffect } from 'react';
 import Button from './Button';
 
