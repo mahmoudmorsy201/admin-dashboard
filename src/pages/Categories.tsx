@@ -4,22 +4,27 @@ import { useDashboardStore } from 'store/store';
 import CategoryForm from 'components/CategoryForm';
 import ConfirmDialog from 'components/ConfirmDialog';
 import { Pencil, Plus, Trash2 } from 'lucide-react';
+import { Category } from 'types/product';
 
 const Categories = () => {
   const { categories, addCategory, updateCategory, deleteCategory } = useDashboardStore();
 
-  const [editingCategory, setEditingCategory] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingCategoryState, setEditingCategoryState] = useState<Category | null>(null);
+  const [isModalOpenState, setIsModalOpenState] = useState(false);
+  const [isDialogOpenState, setIsDialogOpenState] = useState(false);
 
-  const handleSave = (newCategoryName: string) => {
-    if (editingCategory && editingCategory !== newCategoryName) {
-      updateCategory(editingCategory, newCategoryName);
-    } else if (!editingCategory) {
-      addCategory(newCategoryName);
+  const handleSave = (newCategory: Category) => {
+    const isEditingExistingCategory = !!editingCategoryState;
+    const originalCategory = editingCategoryState;
+
+    if (isEditingExistingCategory && originalCategory.name !== newCategory.name) {
+      updateCategory(originalCategory, newCategory);
+    } else {
+      addCategory(newCategory);
     }
-    setIsModalOpen(false);
-    setEditingCategory(null);
+
+    setIsModalOpenState(false);
+    setEditingCategoryState(null);
   };
 
   return (
@@ -29,10 +34,10 @@ const Categories = () => {
         <Button
           text='Add Category'
           variant='blue'
-          icon={<Plus className='text-white' size={24} />}
+          icon={<Plus size={24} />}
           onClick={() => {
-            setEditingCategory(null);
-            setIsModalOpen(true);
+            setEditingCategoryState(null);
+            setIsModalOpenState(true);
           }}
         />
       </div>
@@ -58,8 +63,8 @@ const Categories = () => {
                 variant='yellow'
                 hideTextOnMobile
                 onClick={() => {
-                  setEditingCategory(category.name);
-                  setIsModalOpen(true);
+                  setEditingCategoryState(category);
+                  setIsModalOpenState(true);
                 }}
                 className='w-full'
               />
@@ -69,8 +74,8 @@ const Categories = () => {
                 variant='red'
                 hideTextOnMobile
                 onClick={() => {
-                  setEditingCategory(category.name);
-                  setIsDialogOpen(true);
+                  setEditingCategoryState(category);
+                  setIsDialogOpenState(true);
                 }}
                 className='w-full'
               />
@@ -80,17 +85,21 @@ const Categories = () => {
       </div>
 
       <ConfirmDialog
-        isOpen={isDialogOpen}
-        message={`Are you sure you want to delete ${editingCategory}? This will delete all associated products.`}
+        isOpen={isDialogOpenState}
+        message={`Are you sure you want to delete ${editingCategoryState?.name}? This will delete all associated products.`}
         onConfirm={() => {
-          deleteCategory(editingCategory);
-          setIsDialogOpen(false);
+          deleteCategory(editingCategoryState.name);
+          setIsDialogOpenState(false);
         }}
-        onCancel={() => setIsDialogOpen(false)}
+        onCancel={() => setIsDialogOpenState(false)}
       />
 
-      {isModalOpen && (
-        <CategoryForm initialCategory={editingCategory} onClose={() => setIsModalOpen(false)} onSave={handleSave} />
+      {isModalOpenState && (
+        <CategoryForm
+          initialCategory={editingCategoryState}
+          onClose={() => setIsModalOpenState(false)}
+          onSave={handleSave}
+        />
       )}
     </div>
   );

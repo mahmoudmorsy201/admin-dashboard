@@ -21,7 +21,7 @@ export type ProductRequest = {
 
 export type Category = {
   name: string;
-  image: string;
+  image?: string;
 }
 
 export const categoryImages: { [key: string]: string } = {

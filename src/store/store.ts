@@ -73,8 +73,8 @@ type DashboardState = {
   // Categories State
   categories: Category[];
   setCategories: (categories: string[]) => void;
-  addCategory: (category: string) => void;
-  updateCategory: (oldCategory: string, newCategory: string) => void;
+  addCategory: (category: Category) => void;
+  updateCategory: (oldCategory: Category, newCategory: Category) => void;
   deleteCategory: (category: string) => void;
 
   // Multi-Select Categories for Filtering
@@ -132,26 +132,29 @@ export const useDashboardStore = create<DashboardState>()(
         }));
         set({ categories });
       },
-      addCategory: (category) => {
+      addCategory: (category: Category) => {
         set((state) => ({
           categories: [
             ...state.categories,
-            { name: category, image: categoryImages[category] || categoryImages.other },
+            {
+              name: category.name,
+              image: category.image || categoryImages[category.name] || categoryImages.other, // Fallback logic
+            },
           ],
         }));
       },
-      updateCategory: (oldCategory, newCategory) => {
+      updateCategory: (oldCategory: Category, newCategory: Category) => {
         set((state) => ({
           categories: state.categories.map((category) =>
-            category.name === oldCategory
+            category.name === oldCategory.name
               ? {
-                  name: newCategory,
-                  image: categoryImages[newCategory] || categoryImages.other,
+                  name: newCategory.name,
+                  image: newCategory.image || categoryImages[newCategory.name] || categoryImages.other, // Fallback
                 }
               : category,
           ),
-          products: state.filteredProducts.map((product) =>
-            product.category === oldCategory ? { ...product, category: newCategory } : product,
+          products: state.products.map((product) =>
+            product.category === oldCategory.name ? { ...product, category: newCategory.name } : product,
           ),
         }));
         get().updateFilteredProducts();
