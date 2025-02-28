@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { categoryImages, ProductRequest } from 'types/product';
 
 interface ProductFormProps {
@@ -128,4 +128,4 @@ const ProductForm = ({ categories, initialProduct, onClose, onSave, formError }:
   );
 };
 
-export default ProductForm;
+export default memo(ProductForm);

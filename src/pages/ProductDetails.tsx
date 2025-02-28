@@ -56,13 +56,11 @@ const ProductDetails = () => {
         </div>
       )}
 
-      {/* Buttons */}
       <div className='flex gap-2 mt-4'>
         <Button text='Edit' icon='✏️' variant='yellow' onClick={handleEdit} className='w-full' />
         <Button text='Delete' icon='🗑️' variant='red' onClick={() => setIsDialogOpen(true)} className='w-full' />
       </div>
 
-      {/* Confirm Delete Dialog */}
       <ConfirmDialog
         isOpen={isDialogOpen}
         message={`Are you sure you want to delete "${title}"?`}
@@ -70,13 +68,12 @@ const ProductDetails = () => {
         onCancel={() => setIsDialogOpen(false)}
       />
 
-      {/* Edit Product Modal */}
       {isModalOpen && (
         <ProductForm
           onClose={() => setIsModalOpen(false)}
           onSave={handleSave}
           initialProduct={selectedProduct}
-          categories={categories.map((c) => c.name)} 
+          categories={categories.map((c) => c.name)}
         />
       )}
     </div>

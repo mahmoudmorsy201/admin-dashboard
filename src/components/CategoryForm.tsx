@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import Button from '../components/Button';
 import { useDashboardStore } from 'store/store';
 import { Category } from 'types/product';
@@ -86,4 +86,4 @@ const CategoryForm = ({ initialCategory, onClose, onSave }: CategoryFormProps) =
   );
 };
 
-export default CategoryForm;
+export default memo(CategoryForm);

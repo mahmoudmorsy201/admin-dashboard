@@ -1,6 +1,6 @@
 import { Product } from 'types/product';
 import Button from 'components/Button';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import ConfirmDialog from './ConfirmDialog';
 import { useDashboardStore } from 'store/store';
 import { Pencil, Trash2 } from 'lucide-react';
@@ -72,4 +72,4 @@ const ProductCard = ({ product, onEdit, onDelete }: ProductCardProps) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

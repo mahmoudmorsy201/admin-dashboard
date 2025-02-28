@@ -1,6 +1,7 @@
 import { useDashboardStore } from 'store/store';
 import Button from './Button';
 import { useWindowSize } from 'utils/useWindowSize';
+import { memo } from 'react';
 
 const Sidebar = ({ isOpen, closeSidebar }: { isOpen: boolean; closeSidebar: () => void }) => {
   const { step, setStep, categories, selectedCategories, toggleCategory } = useDashboardStore();
@@ -71,4 +72,4 @@ const Sidebar = ({ isOpen, closeSidebar }: { isOpen: boolean; closeSidebar: () =
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

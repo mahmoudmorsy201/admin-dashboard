@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 
 interface ButtonProps {
   text: string;
@@ -32,4 +32,4 @@ const Button = ({ text, icon, variant = 'blue', onClick, hideTextOnMobile = fals
   );
 };
 
-export default Button;
+export default memo(Button);

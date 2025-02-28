@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import Button from './Button';
 
 interface ConfirmDialogProps {
@@ -38,4 +38,4 @@ const ConfirmDialog = ({ isOpen, title = 'Confirm Action', message, onConfirm, o
   );
 };
 
-export default ConfirmDialog;
+export default memo(ConfirmDialog);
